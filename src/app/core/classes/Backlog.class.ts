@@ -20,7 +20,8 @@ export class Backlog {
     this.name = name;
     this.description = description;
     this.tasks = tasks.map(t => {
-      return new Task(t.id, t.backlog_id, t.name, t.users, t.state);
+
+      return new Task(t.id, t.backlog_id, t.name, t.users, t.description, t.comments, t.state, t.priority);
     });
   }
 

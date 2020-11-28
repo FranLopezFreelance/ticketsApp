@@ -33,7 +33,6 @@ export class BacklogComponent implements OnInit, OnDestroy {
   }
 
   getTasks(){
-    console.log(this.selected_user);
     this.backlog.setSelectedUser(this.selected_user);
     this.tasksInitial = this.backlog.getTaskByState(0);
     this.tasksInProgress = this.backlog.getTaskByState(1);
@@ -52,6 +51,13 @@ export class BacklogComponent implements OnInit, OnDestroy {
       transferArrayItem(event.previousContainer.data,
         event.container.data, event.previousIndex,
         event.currentIndex);
+    }
+  }
+
+  noTasksForUser(){
+    if(!this.tasksInitial.length && !this.tasksInProgress.length
+      && !this.tasksPendingTest.length && !this.tasksDone.length){
+        return true;
     }
   }
 

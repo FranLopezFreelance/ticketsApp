@@ -3,6 +3,8 @@ import { Task } from 'src/app/core/classes/Task.class';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { BacklogService } from 'src/app/core/services/backlog.service';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { TaskDetailDialogComponent } from '../task-detail-dialog/task-detail-dialog.component';
 
 @Component({
   selector: 'app-task',
@@ -16,7 +18,8 @@ export class TaskComponent implements OnInit {
   faUser = faUser;
 
   constructor(
-    private backlogServcice: BacklogService
+    private backlogServcice: BacklogService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -25,6 +28,15 @@ export class TaskComponent implements OnInit {
 
   getUsers(){
     this.users$ = this.backlogServcice.getUsersByIds(this.task.users);
+  }
+
+  showTaskDetail(task: Task){
+    const dialogRef = this.dialog.open(TaskDetailDialogComponent, {
+      width: '450px', data: task, autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(task => {
+      console.log(task);
+    });
   }
 
 }

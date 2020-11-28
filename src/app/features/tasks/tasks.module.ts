@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksComponent } from './tasks.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { BacklogComponent } from './backlog/backlog.component';
-import { TaskComponent } from './task/task.component';
+
 
 @NgModule({
-  declarations: [TasksComponent, BacklogComponent, TaskComponent],
+  declarations: [TasksComponent],
   imports: [
     CommonModule,
     SharedModule,

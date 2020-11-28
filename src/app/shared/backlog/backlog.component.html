@@ -1,5 +1,10 @@
 <accordion-group
   [heading]="backlog.getHeadingName()">
+  <div *ngIf="backlog.tasks.length && noTasksForUser()" class="row">
+    <div class="col-12">
+      <p class="text-muted no-tasks">No hay tareas asignadas al usuario</p>
+    </div>
+  </div>
   <div *ngIf="!backlog.tasks.length" class="row">
     <div class="col-12">
       <p class="text-muted no-tasks">No hay tareas creadas</p>

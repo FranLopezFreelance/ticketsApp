@@ -10,6 +10,14 @@ export const USERS = [
   {
     id: 3,
     name: 'Rodrigo Iturralde'
+  },
+  {
+    id: 4,
+    name: 'Alejandra Jones'
+  },
+  {
+    id: 5,
+    name: 'Mauricio Poncino'
   }
 
 ]

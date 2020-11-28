@@ -1,6 +1,7 @@
-<div class="task" [ngClass]="task.getStateCSSClass()">
+<div class="task" [ngClass]="task.getPriorityCSSClass()"
+  (dblclick)="showTaskDetail(task)">
   <p class="task-title">
-    #{{ task.id }}-{{ task.name }}
+    {{ task.getName() }}
   </p>
   <p class="task-user">
     <fa-icon [icon]="faUser"></fa-icon>

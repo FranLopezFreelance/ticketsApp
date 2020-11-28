@@ -1,1 +1,16 @@
-<p>task-detail-dialog works!</p>
+<h1 mat-dialog-title>{{ task.getName() }}</h1>
+<div mat-dialog-content>
+  <select class="form-control form-control-sm">
+    [(ngModel)]="task.priority" (ngModelChange)="changePriority()">
+    <option value=1>Prioridad Alta</option>
+    <option value=2>Prioridad Media</option>
+    <option value=3>Prioridad Baja</option>
+  </select>
+  <br />
+  <p><b>Descripcion: </b>{{ task.getDescription() }}</p>
+  <p><b>Comentarios: </b>{{ task.getComments() }}</p>
+  <p><b>Estado: </b>{{ task.getState() }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="task">Cerrar</button>
+</div>

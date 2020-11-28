@@ -1,0 +1,46 @@
+p {
+  margin: 0px;
+}
+
+.task {
+  margin: 5px auto;
+  width: 100%;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 6px;
+  padding: 5px;
+  box-sizing: border-box!important;
+  cursor: pointer;
+}
+
+.task-title {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.task-user {
+  font-size: 0.8em;
+}
+
+.low {
+  background-color: rgb(227, 235, 195);
+}
+
+.low:hover {
+  background-color: rgb(210, 219, 174);
+}
+
+.medium {
+  background-color: rgb(230, 209, 171);
+}
+
+.medium:hover {
+  background-color: rgb(219, 198, 159);
+}
+
+.high {
+  background-color: rgb(230, 186, 172);
+}
+
+.high:hover {
+  background-color: rgb(218, 169, 154);
+}
