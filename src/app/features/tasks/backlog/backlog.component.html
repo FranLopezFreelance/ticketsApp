@@ -1,0 +1,34 @@
+<accordion-group
+  [heading]="backlog.getHeadingName()">
+  <div *ngIf="!backlog.tasks.length" class="row">
+    <div class="col-12">
+      <p class="text-muted no-tasks">No hay tareas creadas</p>
+    </div>
+  </div>
+  <div cdkDropListGroup *ngIf="backlog.hasTasks()" class="row">
+    <div cdkDropList [cdkDropListData]="tasksInitial"
+      (cdkDropListDropped)="moveTask($event)"
+      class="col-md-3 dashboard-column">
+        <app-task *ngFor="let task of tasksInitial"
+          [task]="task" cdkDrag></app-task>
+    </div>
+    <div cdkDropList [cdkDropListData]="tasksInProgress"
+      (cdkDropListDropped)="moveTask($event)"
+      class="col-md-3 border-left dashboard-column">
+        <app-task *ngFor="let task of tasksInProgress"
+          [task]="task" cdkDrag></app-task>
+    </div>
+    <div  cdkDropList [cdkDropListData]="tasksPendingTest"
+      (cdkDropListDropped)="moveTask($event)"
+      class="col-md-3 border-left dashboard-column">
+        <app-task *ngFor="let task of tasksPendingTest"
+          [task]="task" cdkDrag></app-task>
+    </div>
+    <div cdkDropList [cdkDropListData]="tasksDone"
+      (cdkDropListDropped)="moveTask($event)"
+      class="col-md-3 border-left dashboard-column">
+        <app-task *ngFor="let task of tasksDone"
+          [task]="task" cdkDrag></app-task>
+    </div>
+  </div>
+</accordion-group>

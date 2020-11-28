@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a {
+  cursor: pointer!important;
+}
+
+.container-fluid {
+  margin-top: 15px;
+}
+
+.panel-body, .card-body {
+  padding: 0.3rem 1.25rem!important;
+}
+
+.card-header {
+  padding: 2px!important;
+}
+
+.panel-title {
+  button, button:hover, button:active, button:focus {
+    text-decoration: none!important;
+    outline: none !important;
+    box-shadow: none!important;
+    color: rgb(63, 63, 63);
+  }
+}

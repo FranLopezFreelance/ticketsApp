@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <h4>Sprints</h4>
+      <hr />
+      <ul class="list-group">
+        <a *ngFor="let sprint of sprints$ | async"
+          [routerLink]="'/tareas/' + sprint.url" routerLinkActive="active-sprint"
+          class="list-group-item list-group-item-action">
+          {{ sprint.name }}
+        </a>
+      </ul>
+    </div>
+    <div class="col-md-10">
+
+      <div class="row">
+        <div class="col-md-5">
+          <h4 class="flex-grow-1">Backlog</h4>
+        </div>
+        <div class="col-md-5">
+          <div class="form-inline my-2 my-lg-0">
+            <select class="form-control" id="exampleFormControlSelect1"
+              [(ngModel)]="selected_user" (ngModelChange)="changeUser()">
+              <option value=0 selected>Todos los usuarios</option>
+              <option *ngFor="let user of users$ | async"
+                [value]="user.id">{{ user.name }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex flex-row justify-content-end">
+          <button type="button" class="btn btn-outline-success">
+            Crear nuevo
+          </button>
+        </div>
+      </div>
+      <hr />
+      <accordion [isAnimated]="true">
+        <app-backlog *ngFor="let backlog of backlog$ | async"
+          [backlog]=backlog></app-backlog>
+      </accordion>
+    </div>
+  </div>
+</div>

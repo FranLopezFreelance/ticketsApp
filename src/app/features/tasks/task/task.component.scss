@@ -1,0 +1,50 @@
+.task {
+  margin: 5px auto;
+  width: 100%;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 6px;
+  padding: 5px;
+  box-sizing: border-box!important;
+  cursor: pointer;
+}
+
+.task-title {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.task-user {
+  font-size: 0.8em;
+}
+
+.initial {
+  background-color: rgb(226, 226, 226);
+}
+
+.initial:hover {
+  background-color: rgb(214, 210, 210);
+}
+
+.in-progress {
+  background-color: rgb(222, 240, 145);
+}
+
+.in-progress:hover {
+  background-color: rgb(210, 228, 133);
+}
+
+.pending-test {
+  background-color: rgb(195, 195, 231);
+}
+
+.pending-test:hover {
+  background-color: rgb(176, 176, 218);
+}
+
+.done {
+  background-color: rgb(156, 214, 171);
+}
+
+.done:hover {
+  background-color: rgb(133, 196, 148);
+}

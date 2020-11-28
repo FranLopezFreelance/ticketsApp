@@ -1,0 +1,22 @@
+p {
+  margin: 0px;
+}
+
+.dashboard-column {
+  padding: 0px 5px;
+  align-items: center!important;
+  min-height: auto;
+  overflow: hidden!important;
+}
+
+.border-left {
+  border-left: 1px solid rgb(221, 221, 221)!important;
+}
+
+.backlog-group {
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.no-tasks {
+  margin: 15px;
+}
