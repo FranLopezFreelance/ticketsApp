@@ -21,6 +21,16 @@ export class BacklogService {
     return of(this.users);
   }
 
+  getUsersByIds(ids: number[]){
+    let users = [];
+    ids.forEach(id => {
+      if(this.users.find(u => u.id == id)){
+        users.push(this.users.find(u => u.id == id));
+      }
+    })
+    return of(users);
+  }
+
   getSprints(){
     return of(this.sprints);
   }

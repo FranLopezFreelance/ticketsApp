@@ -13,12 +13,12 @@
     </div>
     <div class="col-md-10">
 
-      <div class="row">
+      <div class="row row-header">
         <div class="col-md-5">
           <h4 class="flex-grow-1">Backlog</h4>
         </div>
         <div class="col-md-5">
-          <div class="form-inline my-2 my-lg-0">
+          <div class="form-inline my-2 my-lg-0 select-user">
             <select class="form-control" id="exampleFormControlSelect1"
               [(ngModel)]="selected_user" (ngModelChange)="changeUser()">
               <option value=0 selected>Todos los usuarios</option>
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="col-md-2 d-flex flex-row justify-content-end">
-          <button type="button" class="btn btn-outline-success">
+          <button type="button" class="btn btn-outline-success create-button">
             Crear nuevo
           </button>
         </div>
@@ -36,7 +36,7 @@
       <hr />
       <accordion [isAnimated]="true">
         <app-backlog *ngFor="let backlog of backlog$ | async"
-          [backlog]=backlog></app-backlog>
+          [backlog]=backlog [selected_user]=selected_user></app-backlog>
       </accordion>
     </div>
   </div>

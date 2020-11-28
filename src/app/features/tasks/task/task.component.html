@@ -4,7 +4,7 @@
   </p>
   <p class="task-user">
     <fa-icon [icon]="faUser"></fa-icon>
-    <span *ngFor="let user of task.users">
+    <span *ngFor="let user of users$ | async">
       {{ user.name }}
     </span>
   </p>

@@ -40,21 +40,17 @@ export class Backlog {
     }
   }
 
-  moveTask(moovedTask: any, container: string){
+  moveTask(moovedTask: any, container: DOMTokenList){
     let state: number;
-    switch(container){
-      case 'cdk-drop-list-0':
-        state = 0;
-        break;
-      case 'cdk-drop-list-1':
-        state = 1;
-        break;
-      case 'cdk-drop-list-2':
-        state = 2;
-        break;
-      case 'cdk-drop-list-3':
-        state = 3;
-        break;
+
+    if(container.contains('initial')){
+      state = 0;
+    } else if (container.contains('in-progress')){
+      state = 1;
+    } else if (container.contains('pending-test')){
+      state = 2;
+    } else if (container.contains('done')) {
+      state = 3;
     }
 
     this.tasks.map(t => {
