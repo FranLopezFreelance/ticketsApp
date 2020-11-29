@@ -1,5 +1,5 @@
 <div class="task" [ngClass]="task.getPriorityCSSClass()"
-  (dblclick)="showTaskDetail(task)">
+  (dblclick)="showTaskDetail(task)" (mouseover)="showTaskDetailTimer(task)" (mouseout)="cancelTaskDetailTimer()">
   <p class="task-title">
     {{ task.getName() }}
   </p>

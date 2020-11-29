@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{ task.getName() }}</h1>
 <div mat-dialog-content>
-  <select class="form-control form-control-sm">
+  <select class="form-control form-control-sm" name="priority"
     [(ngModel)]="task.priority" (ngModelChange)="changePriority()">
     <option value=1>Prioridad Alta</option>
     <option value=2>Prioridad Media</option>

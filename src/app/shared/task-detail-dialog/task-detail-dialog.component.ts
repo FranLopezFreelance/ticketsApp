@@ -12,7 +12,8 @@ export class TaskDetailDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<TaskDetailDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public task: Task
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }

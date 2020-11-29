@@ -16,6 +16,7 @@ export class TaskComponent implements OnInit {
   @Input() task: Task;
   users$: Observable<any>;
   faUser = faUser;
+  showDialogTimer: any;
 
   constructor(
     private backlogServcice: BacklogService,
@@ -30,12 +31,23 @@ export class TaskComponent implements OnInit {
     this.users$ = this.backlogServcice.getUsersByIds(this.task.users);
   }
 
+  showTaskDetailTimer(task: Task){
+    this.showDialogTimer = setTimeout(() => {
+      this.showTaskDetail(task);
+    }, 1000);
+  }
+
+  cancelTaskDetailTimer(){
+    clearTimeout(this.showDialogTimer);
+  }
+
   showTaskDetail(task: Task){
+    clearTimeout(this.showDialogTimer);
     const dialogRef = this.dialog.open(TaskDetailDialogComponent, {
-      width: '450px', data: task, autoFocus: false
+      width: '500px', data: task, autoFocus: false
     });
     dialogRef.afterClosed().subscribe(task => {
-      console.log(task);
+      //console.log(task);
     });
   }
 

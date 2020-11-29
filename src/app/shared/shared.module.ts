@@ -38,8 +38,8 @@ const ENTRY_COMPONENTS = [
     MaterialModule
   ],
   exports: [
-    DCLARATIONS,
     FormsModule,
+    DCLARATIONS,
     FontAwesomeModule,
     AccordionModule,
     MaterialModule

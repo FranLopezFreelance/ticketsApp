@@ -1,4 +1,5 @@
 <accordion-group
+  [isOpen]="true"
   [heading]="backlog.getHeadingName()">
   <div *ngIf="backlog.tasks.length && noTasksForUser()" class="row">
     <div class="col-12">
