@@ -1,1 +1,42 @@
-<p>create-task-dialog works!</p>
+<h1 mat-dialog-title>
+  Nueva Tarea
+</h1>
+<mat-dialog-content>
+<p><span class="badge badge-secondary">{{ backlog.name }}</span></p>
+
+<div class="form-group">
+  <label for="name">Nombre</label>
+  <input type="text" class="form-control" id="name" placeholder="Nombre">
+</div>
+
+<div class="form-group">
+  <label for="priority">Prioridad</label>
+  <select class="form-control" id="priority">
+    <option value=1>Alta</option>
+    <option value=2>Media</option>
+    <option value=3>Baja</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="description">Descripción</label>
+  <textarea class="form-control" id="description" rows="3"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="users">Usuarios</label>
+  <small id="usersHelp" class="form-text text-muted usersHelp">
+    Mantenga presionado Ctrl para selección múltiple
+  </small>
+  <select multiple class="form-control" id="users" aria-describedby="usersHelp">
+    <option *ngFor="let user of users$ | async" [value]="user.id">
+      {{ user.name }}
+    </option>
+  </select>
+</div>
+</mat-dialog-content>
+<div mat-dialog-actions align="end">
+  <button class="btn btn-default" [mat-dialog-close]>Cancelar</button>
+  <button class="btn btn-success" [mat-dialog-close]="backlog">Guardar</button>
+</div>
+

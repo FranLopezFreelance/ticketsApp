@@ -28,6 +28,27 @@ a {
   }
 }
 
-.list-group-item {
+/* .list-group-item {
   text-align: center!important;
+} */
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.cdk-global-scrollblock {
+  overflow-y: hidden!important;
 }

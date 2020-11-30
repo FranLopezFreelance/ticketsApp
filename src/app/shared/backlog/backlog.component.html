@@ -2,6 +2,9 @@
   [isOpen]="true"
   [heading]="backlog.getHeadingName()"
   #accordionGroupRef>
+  <a class="badge badge-primary view-backlog" (click)="viewBacklogDetail(backlog)">
+    Ver / Editar Backlog
+  </a>
   <a class="badge badge-success" (click)="newTask(backlog)">
     Nueva Tarea
   </a>

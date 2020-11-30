@@ -3,7 +3,7 @@ export const TASKS = [
     id: 82420198,
     backlog_id: 1762876,
     name: 'Realizar diseño',
-    users: [5],
+    users: [5, 2],
     description: 'Esta es una breve descripción de la tarea, en donde se han algunas indicaciones, etc. Luego se podrán incorporar imágenes',
     comments: 'Estos son los comentarios que se pueden ir agregando a la tarea seún cuestiones que vayan surgiendo en el transcurso de su resolución.',
     state: 0,

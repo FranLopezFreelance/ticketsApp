@@ -7,6 +7,7 @@ import { fromEvent, Observable, Subscription } from 'rxjs';
 import { BacklogService } from 'src/app/core/services/backlog.service';
 import { EventsService } from 'src/app/core/services/events.service';
 import { CreateBacklogDialogComponent } from 'src/app/shared/create-backlog-dialog/create-backlog-dialog.component';
+import { CreateSprintDialogComponent } from 'src/app/shared/create-sprint-dialog/create-sprint-dialog.component';
 
 @Component({
   selector: 'app-tasks',
@@ -70,7 +71,12 @@ export class TasksComponent implements OnInit, OnDestroy {
   }
 
   newSprint(){
-
+    const dialogRef = this.dialog.open(CreateSprintDialogComponent, {
+      width: '550px', data: {}, autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(sprint => {
+      //console.log(sprint);
+    });
   }
 
   newBacklog(){

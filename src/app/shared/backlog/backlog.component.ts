@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Backlog } from 'src/app/core/classes/Backlog.class';
 import { Task } from 'src/app/core/classes/Task.class';
 import { EventsService } from 'src/app/core/services/events.service';
+import { BacklogDetailDialogComponent } from '../backlog-detail-dialog/backlog-detail-dialog.component';
 import { CreateTaskDialogComponent } from '../create-task-dialog/create-task-dialog.component';
 
 @Component({
@@ -62,6 +63,15 @@ export class BacklogComponent implements OnInit, OnDestroy {
       && !this.tasksPendingTest.length && !this.tasksDone.length){
         return true;
     }
+  }
+
+  viewBacklogDetail(backlog: Backlog){
+    const dialogRef = this.dialog.open(BacklogDetailDialogComponent, {
+      width: '550px', data: backlog, autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(task => {
+      //console.log(task);
+    });
   }
 
   newTask(backlog: Backlog){

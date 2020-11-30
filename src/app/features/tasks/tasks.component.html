@@ -1,15 +1,22 @@
 <div class="container-fluid">
   <div [class.fixed]="fixedSprintHeader">
     <div class="row" >
-      <div class="col-md-1">
-        <h4>Sprints</h4>
+      <div class="col-md-2">
+        <h4>
+          Sprints
+          <a class="badge badge-success new-sprint"
+            (click)="newSprint()">
+            Nuevo Sprint
+          </a>
+        </h4>
       </div>
-      <div class="col-md-11">
+      <div class="col-md-10">
         <div class="row row-header">
           <div class="col-md-10">
             <h4 class="flex-grow-1">
               Backlog
-              <a class="badge badge-success tasks new-backlog" (click)="newBacklog()">
+              <a class="badge badge-success tasks new-backlog"
+                (click)="newBacklog()">
                 Nuevo Backlog
               </a>
             </h4>
@@ -27,24 +34,31 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
+      <hr />
       <div [class.col-fixed]="fixedSprintHeader">
-        <hr />
         <ul class="list-group">
           <a *ngFor="let sprint of sprints$ | async"
           [routerLink]="'/tareas/' + sprint.url" routerLinkActive="active-sprint"
           class="list-group-item list-group-item-action flex-row justify-content-center">
-            Sp. {{ sprint.name }}
+            {{ sprint.name }}
+            <a class="badge badge-secondary current" *ngIf="sprint.current">
+              Vigente
+            </a>
           </a>
         </ul>
         <hr />
-
-        <a class="badge badge-success new-sprint" (click)="newSprint()">
-          Nuevo Sprint
-        </a>
+        <div class="sprint-info">
+          <p><b>Sprint 5</b></p>
+          <p><b>Fecha desde: </b>01/11/2020</p>
+          <p><b>Fecha hasta: </b>22/11/2020</p>
+          <a class="badge badge-primary">
+            Marcar como Vigente
+          </a>
+        </div>
       </div>
     </div>
-    <div class="col-md-11 backlog-content">
+    <div class="col-md-10 backlog-content">
       <hr />
       <accordion [isAnimated]="true">
         <app-backlog *ngFor="let backlog of backlog$ | async"

@@ -10,6 +10,7 @@ import { TaskDetailDialogComponent } from './task-detail-dialog/task-detail-dial
 import { BacklogDetailDialogComponent } from './backlog-detail-dialog/backlog-detail-dialog.component';
 import { CreateBacklogDialogComponent } from './create-backlog-dialog/create-backlog-dialog.component';
 import { CreateTaskDialogComponent } from './create-task-dialog/create-task-dialog.component';
+import { CreateSprintDialogComponent } from './create-sprint-dialog/create-sprint-dialog.component';
 
 const Declarations = [
   BacklogComponent,
@@ -21,6 +22,7 @@ const EntryComponents = [
   CreateBacklogDialogComponent,
   TaskDetailDialogComponent,
   CreateTaskDialogComponent,
+  CreateSprintDialogComponent
 ]
 @NgModule({
   declarations: [

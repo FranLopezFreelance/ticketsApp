@@ -18,7 +18,12 @@
 }
 
 .new-sprint {
-  margin-bottom: 20px;
+  font-size: 0.5em;
+}
+
+.current {
+  margin-left: 10px!important;
+  font-size: 0.6em;
 }
 
 .new-backlog {
@@ -45,5 +50,17 @@
 
 .col-fixed {
   position: fixed;
-  top: 60px;
+  top: 76px;
+  width: 14.5vw;
+}
+
+.sprint-info {
+  padding: 3px 0px 6px;
+  background-color: rgb(246, 246, 246);
+  font-size: 0.9em;
+  text-align: center;
+  border: 1px solid rgb(214, 214, 214);
+  p {
+    margin: 4px;
+  }
 }

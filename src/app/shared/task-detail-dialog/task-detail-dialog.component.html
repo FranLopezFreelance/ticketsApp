@@ -1,16 +1,18 @@
 <h1 mat-dialog-title>{{ task.getName() }}</h1>
-<p><span class="badge badge-secondary">{{ task.getState() }}</span></p>
-<div mat-dialog-content>
-  <select class="form-control form-control-sm" name="priority"
-    [(ngModel)]="task.priority" (ngModelChange)="changePriority()">
-    <option value=1>Prioridad Alta</option>
-    <option value=2>Prioridad Media</option>
-    <option value=3>Prioridad Baja</option>
-  </select>
-  <br />
-  <p><b>Descripcion: </b>{{ task.getDescription() }}</p>
-  <p><b>Comentarios: </b>{{ task.getComments() }}</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="task">Cerrar</button>
+<mat-dialog-content>
+  <p><span class="badge badge-secondary">{{ task.getState() }}</span></p>
+  <div mat-dialog-content class="content">
+    <select class="form-control form-control-sm" name="priority"
+      [(ngModel)]="task.priority" (ngModelChange)="changePriority()">
+      <option value=1>Prioridad Alta</option>
+      <option value=2>Prioridad Media</option>
+      <option value=3>Prioridad Baja</option>
+    </select>
+    <br />
+    <p><b>Descripcion: </b>{{ task.getDescription() }}</p>
+    <p><b>Comentarios: </b>{{ task.getComments() }}</p>
+  </div>
+</mat-dialog-content>
+<div mat-dialog-actions align="end">
+  <button class="btn btn-default" [mat-dialog-close]="task">Cerrar</button>
 </div>

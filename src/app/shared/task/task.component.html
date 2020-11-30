@@ -1,10 +1,10 @@
 <div class="task" [ngClass]="task.getPriorityCSSClass()"
-  (dblclick)="showTaskDetail(task)" (mouseover)="showTaskDetailTimer(task)" (mouseout)="cancelTaskDetailTimer()">
+  (dblclick)="showTaskDetail(task)">
   <p class="task-title">
     {{ task.getName() }}
   </p>
   <p class="task-user">
-    <a *ngFor="let user of users$ | async" class="badge badge-light">
+    <a *ngFor="let user of users$ | async" class="badge badge-light user-badge">
       <fa-icon [icon]="faUser"></fa-icon>
       {{ user.name }}
     </a>
