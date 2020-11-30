@@ -17,6 +17,11 @@ export class BacklogService {
   tasks = TASKS;
   constructor() { }
 
+  getCurrentSprint(){
+    const cs = this.sprints.find(s => s.current);
+    return of(cs);
+  }
+
   getUsers(){
     return of(this.users);
   }

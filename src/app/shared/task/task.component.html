@@ -4,9 +4,9 @@
     {{ task.getName() }}
   </p>
   <p class="task-user">
-    <fa-icon [icon]="faUser"></fa-icon>
-    <span *ngFor="let user of users$ | async">
+    <a *ngFor="let user of users$ | async" class="badge badge-light">
+      <fa-icon [icon]="faUser"></fa-icon>
       {{ user.name }}
-    </span>
+    </a>
   </p>
 </div>

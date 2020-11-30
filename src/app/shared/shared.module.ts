@@ -11,12 +11,12 @@ import { BacklogDetailDialogComponent } from './backlog-detail-dialog/backlog-de
 import { CreateBacklogDialogComponent } from './create-backlog-dialog/create-backlog-dialog.component';
 import { CreateTaskDialogComponent } from './create-task-dialog/create-task-dialog.component';
 
-const DCLARATIONS = [
+const Declarations = [
   BacklogComponent,
   TaskComponent
 ];
 
-const ENTRY_COMPONENTS = [
+const EntryComponents = [
   BacklogDetailDialogComponent,
   CreateBacklogDialogComponent,
   TaskDetailDialogComponent,
@@ -24,11 +24,11 @@ const ENTRY_COMPONENTS = [
 ]
 @NgModule({
   declarations: [
-    DCLARATIONS,
-    ENTRY_COMPONENTS
+    Declarations,
+    EntryComponents
   ],
   entryComponents: [
-    ENTRY_COMPONENTS
+    EntryComponents
   ],
   imports: [
     CommonModule,
@@ -38,8 +38,8 @@ const ENTRY_COMPONENTS = [
     MaterialModule
   ],
   exports: [
+    Declarations,
     FormsModule,
-    DCLARATIONS,
     FontAwesomeModule,
     AccordionModule,
     MaterialModule

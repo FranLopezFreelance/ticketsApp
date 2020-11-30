@@ -1,9 +1,11 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { Subscription } from 'rxjs';
 import { Backlog } from 'src/app/core/classes/Backlog.class';
 import { Task } from 'src/app/core/classes/Task.class';
 import { EventsService } from 'src/app/core/services/events.service';
+import { CreateTaskDialogComponent } from '../create-task-dialog/create-task-dialog.component';
 
 @Component({
   selector: 'app-backlog',
@@ -21,7 +23,8 @@ export class BacklogComponent implements OnInit, OnDestroy {
   eventsSubscription: Subscription;
 
   constructor(
-    private eventsService: EventsService
+    private eventsService: EventsService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -59,6 +62,15 @@ export class BacklogComponent implements OnInit, OnDestroy {
       && !this.tasksPendingTest.length && !this.tasksDone.length){
         return true;
     }
+  }
+
+  newTask(backlog: Backlog){
+    const dialogRef = this.dialog.open(CreateTaskDialogComponent, {
+      width: '550px', data: backlog, autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(task => {
+      //console.log(task);
+    });
   }
 
   ngOnDestroy(){

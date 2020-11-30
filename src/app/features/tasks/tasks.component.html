@@ -1,43 +1,50 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-1">
-      <h4>Sprints</h4>
-      <hr />
-      <ul class="list-group">
-        <a *ngFor="let sprint of sprints$ | async"
-          [routerLink]="'/tareas/' + sprint.url" routerLinkActive="active-sprint"
-          class="list-group-item list-group-item-action flex-row justify-content-center">
-          Sp. {{ sprint.name }}
-        </a>
-      </ul>
-    </div>
-    <div class="col-md-11 backlog-content">
-      <div class="row row-header">
-        <div class="col-md-7">
-          <h4 class="flex-grow-1">Backlog</h4>
-        </div>
-        <div class="col-md-2 flex-row justify-content-end">
-          <select class="form-control form-control-sm"
-            [(ngModel)]="selected_user" (ngModelChange)="changeUser()">
-            <option value=0 selected>Todos los usuarios</option>
-            <option *ngFor="let user of users$ | async"
-              [value]="user.id">{{ user.name }}</option>
-          </select>
-        </div>
-        <div class="col-md-2 flex-row justify-content-end">
-          <select class="form-control form-control-sm"
-            [(ngModel)]="selected_user" (ngModelChange)="changeUser()">
-            <option value=0 selected>Todos los estados</option>
-            <option *ngFor="let user of users$ | async"
-              [value]="user.id">{{ user.name }}</option>
-          </select>
-        </div>
-        <div class="col-md-1 d-flex flex-row justify-content-end">
-          <button type="button" class="btn btn-outline-success btn-sm">
-            Nuevo
-          </button>
+  <div [class.fixed]="fixedSprintHeader">
+    <div class="row" >
+      <div class="col-md-1">
+        <h4>Sprints</h4>
+      </div>
+      <div class="col-md-11">
+        <div class="row row-header">
+          <div class="col-md-10">
+            <h4 class="flex-grow-1">
+              Backlog
+              <a class="badge badge-success tasks new-backlog" (click)="newBacklog()">
+                Nuevo Backlog
+              </a>
+            </h4>
+          </div>
+          <div class="col-md-2 flex-row justify-content-end">
+            <select class="form-control form-control-sm"
+              [(ngModel)]="selected_user" (ngModelChange)="changeUser()">
+              <option value=0 selected>Todos los usuarios</option>
+              <option *ngFor="let user of users$ | async"
+                [value]="user.id">{{ user.name }}</option>
+            </select>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <div [class.col-fixed]="fixedSprintHeader">
+        <hr />
+        <ul class="list-group">
+          <a *ngFor="let sprint of sprints$ | async"
+          [routerLink]="'/tareas/' + sprint.url" routerLinkActive="active-sprint"
+          class="list-group-item list-group-item-action flex-row justify-content-center">
+            Sp. {{ sprint.name }}
+          </a>
+        </ul>
+        <hr />
+
+        <a class="badge badge-success new-sprint" (click)="newSprint()">
+          Nuevo Sprint
+        </a>
+      </div>
+    </div>
+    <div class="col-md-11 backlog-content">
       <hr />
       <accordion [isAnimated]="true">
         <app-backlog *ngFor="let backlog of backlog$ | async"

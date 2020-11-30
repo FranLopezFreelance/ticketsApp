@@ -34,7 +34,7 @@ export class TaskComponent implements OnInit {
   showTaskDetailTimer(task: Task){
     this.showDialogTimer = setTimeout(() => {
       this.showTaskDetail(task);
-    }, 1000);
+    }, 2000);
   }
 
   cancelTaskDetailTimer(){
@@ -44,7 +44,7 @@ export class TaskComponent implements OnInit {
   showTaskDetail(task: Task){
     clearTimeout(this.showDialogTimer);
     const dialogRef = this.dialog.open(TaskDetailDialogComponent, {
-      width: '500px', data: task, autoFocus: false
+      width: '550px', data: task, autoFocus: false
     });
     dialogRef.afterClosed().subscribe(task => {
       //console.log(task);
